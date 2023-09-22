@@ -1,7 +1,8 @@
 package com.example
 
 
-import com.example.plugins.homeRoutes
+import com.example.plugins.routes.homeRoutes
+import com.example.plugins.routes.getMethodRoutes
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
@@ -25,5 +26,6 @@ fun Application.applicationConfModel() {
      */
    routing {
        homeRoutes()
+       getMethodRoutes()
    }
 }

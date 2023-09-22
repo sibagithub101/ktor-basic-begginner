@@ -1,10 +1,10 @@
-package com.example.plugins
+package com.example.plugins.routes
 
-import com.example.LoginModel
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.serialization.Serializable
 
 /**
  * Getting headerName,User-Agent,Accept and query parameter's push name
@@ -33,7 +33,7 @@ fun Route.homeRoutes() {
      */
     route("/mobiles"){
         // Api format:-  http://127.0.0.1:8080/mobiles/5
-        get("/mobiles/{page}") {
+        get("/{page}") {
             call.respondText("you are on page number:${call.parameters["page"]}")
         }
 
@@ -47,7 +47,15 @@ fun Route.homeRoutes() {
         println(userInfo)
         call.respondText("Login successful")
     }
-
 }
+
+/**
+ * data class for userInput/getting data
+ */
+@Serializable
+data class LoginModel(
+    val email: String,
+    val password: String
+)
 
 
