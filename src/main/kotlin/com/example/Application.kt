@@ -11,10 +11,10 @@ import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.routing.*
 
 fun main(){
-    embeddedServer(factory = Netty, port = 8080, host = "0.0.0.0", module = Application::applicationConfModel).start(true)
+    embeddedServer(factory = Netty, port = 8080, host = "0.0.0.0", module = Application::applicationModule).start(true)
 }
 
-fun Application.applicationConfModel() {
+fun Application.applicationModule() {
     /**
      * below code used for install ContentNegotiation for Serializable of json object
      */
